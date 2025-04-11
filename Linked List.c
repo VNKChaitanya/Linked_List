@@ -51,7 +51,7 @@ void insertat_mid(int val, int pos){
 	}
 	node *newnode = create(val);
 	int i=1;
-	while(i<pos){
+	while(i<pos-1){
 		if(current_node->next==tail) {
 			insertat_tail(val);
 			return;
@@ -111,7 +111,7 @@ void delat_mid(int pos){
 	}
 	int i=1;
 	node *current_node= head;
-	while(i<pos){
+	while(i<pos-1){
 		if(current_node->next==tail) {
 			delat_tail();
 			return;
@@ -161,7 +161,7 @@ int main(){
 		else if(uc==3){
 				printf("\nEnter the value and position\n");
 				scanf("%d %d", &val,&pos);
-				insertat_mid(val,pos-1);
+				insertat_mid(val,pos);
 		} 
 		//4
 		else if(uc==4){
@@ -171,7 +171,7 @@ int main(){
 		//5
 		else if(uc==5){
 			if(cnt==0)printf("\nYou haven't created a Linked List Yet\n");
-			else delat_tail(cnt+1);
+			else delat_tail();
 		} 
 		//6
 		else if(uc==6){
@@ -179,13 +179,14 @@ int main(){
 				else {
 						printf("\nEnter the position\n");
 						scanf("%d", &pos);
-						delat_mid(pos-1);
+						delat_mid(pos);
 				}
 		}
 		//7
 		else if(uc==7){
 				display();	
 		} 
+		else if(uc==8) return 0;
 		// default
 		else printf("\nYou can only enter 1-8\n");
 		cnt++;
